@@ -5,7 +5,7 @@ var confirmCharacter;
 var confirmUppercase;
 var confirmLowercase;
 
-//start password variable values:
+//password variable values:
 number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 character = [
   "!",
@@ -68,6 +68,12 @@ alpha = [
   "y",
   "z",
 ];
+
+var toUpperCase = function (x) {
+  return x.toUpperCase();
+};
+//.map creates a new array - in this case we want to add Upper Case alphabet
+alpha2 = alpha.map(toUpperCase);
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
