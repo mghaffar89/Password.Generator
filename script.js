@@ -75,7 +75,7 @@ var toUpperCase = function (x) {
 //.map creates a new array - in this case we want to add Upper Case alphabet
 alpha2 = alpha.map(toUpperCase);
 
-// Assignment Code
+// Assignment Code - given in starter code
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
@@ -88,3 +88,11 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+function generatePassword() {
+  enter = parseInt(
+    prompt(
+      "How many characters would you like your password? Choose between 8 and 128"
+    )
+  );
+}
