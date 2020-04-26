@@ -4,6 +4,7 @@ var confirmNumber;
 var confirmCharacter;
 var confirmUppercase;
 var confirmLowercase;
+var choicesSelected;
 
 //password variable values:
 number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -95,4 +96,19 @@ function generatePassword() {
       "How many characters would you like your password? Choose between 8 and 128"
     )
   );
+  if (!enter) {
+    alert("This needs a value");
+  } else if (enter < 8 || enter > 128) {
+    enter = parseInt(prompt("You must choose between 8 and 128"));
+  } else {
+    confirmNumber = confirm("Will this contain numbers?");
+    confirmCharacter = confirm("Will this contain special characters?");
+    confirmUppercase = confirm("Will this contain Uppercase letters?");
+    confirmLowercase = confirm("Will this contain Lowercase letters?");
+  }
 }
+
+if (confirmCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
+  choicesSelected = character.push(number, alpha, alpha2);
+}
+console.log(choicesSelected);
