@@ -147,8 +147,10 @@ else if (confirmNumber) {
 }
 var password = [];
 
-for (var i = 0; i < enter; i++) {
+for (var i = 0; i < userEnter; i++) {
   var generateChoices =
     choicesSelected[Math.floor(Math.random() * choicesSelected.length)];
   password.push(generateChoices);
 }
+
+return generatePassword.join("");
