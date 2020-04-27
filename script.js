@@ -110,47 +110,54 @@ function generatePassword() {
       "Click OK to confirm including Lowercase letters"
     );
   }
-}
-//first if statement is for if user chooses all 4 options - .push is what combines the values together
-if (confirmCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
-  choicesSelected = character.push(number, alpha, alpha2);
-  //next section is if user chooses 3 out of 4 options
-} else if (confirmCharacter && confirmNumber && confirmUppercase) {
-  choicesSelected = character.push(number, alpha2);
-} else if (confirmCharacter && confirmNumber && confirmLowercase) {
-  choicesSelected = character.push(number, alpha);
-} else if (confirmCharacter && confirmLowercase && confirmUppercase) {
-  choicesSelected = character.push(alpha, alpha2);
-} else if (confirmNumber && confirmLowercase && confirmUppercase) {
-  choicesSelected = number.push(alpha, alpha2);
-  //next section is if user chooses 2 out of 4 options
-} else if (confirmCharacter && confirmNumber) {
-  choicesSelected = character.push(number);
-} else if (confirmCharacter && confirmLowercase) {
-  choicesSelected = character.push(alpha);
-} else if (confirmCharacter && confirmUppercase) {
-  choicesSelected = character.push(alpha2);
-} else if (confirmLowercase && confirmNumber) {
-  choicesSelected = alpha.push(number);
-} else if (confirmLowercase && confirmUppercase) {
-  choicesSelected = alpha.push(alpha2);
-} else if (confirmNumber && confirmUppercase) {
-  choicesSelected = number.push(alpha2);
-}
-// and last section if user chooses 1 out of the 4
-else if (confirmNumber) {
-  choicesSelected = number;
-} else if (confirmLowercase) {
-  choicesSelected = alpha;
-} else if (confirmCharacter) {
-  choicesSelected = character;
-}
-var password = [];
 
-for (var i = 0; i < userEnter; i++) {
-  var generateChoices =
-    choicesSelected[Math.floor(Math.random() * choicesSelected.length)];
-  password.push(generateChoices);
-}
+  //first if statement is for if user chooses all 4 options - .push is what combines the values together
+  if (
+    confirmCharacter &&
+    confirmNumber &&
+    confirmUppercase &&
+    confirmLowercase
+  ) {
+    choicesSelected = character.push(number, alpha, alpha2);
+    //next section is if user chooses 3 out of 4 options
+  } else if (confirmCharacter && confirmNumber && confirmUppercase) {
+    choicesSelected = character.push(number, alpha2);
+  } else if (confirmCharacter && confirmNumber && confirmLowercase) {
+    choicesSelected = character.push(number, alpha);
+  } else if (confirmCharacter && confirmLowercase && confirmUppercase) {
+    choicesSelected = character.push(alpha, alpha2);
+  } else if (confirmNumber && confirmLowercase && confirmUppercase) {
+    choicesSelected = number.push(alpha, alpha2);
+    //next section is if user chooses 2 out of 4 options
+  } else if (confirmCharacter && confirmNumber) {
+    choicesSelected = character.push(number);
+  } else if (confirmCharacter && confirmLowercase) {
+    choicesSelected = character.push(alpha);
+  } else if (confirmCharacter && confirmUppercase) {
+    choicesSelected = character.push(alpha2);
+  } else if (confirmLowercase && confirmNumber) {
+    choicesSelected = alpha.push(number);
+  } else if (confirmLowercase && confirmUppercase) {
+    choicesSelected = alpha.push(alpha2);
+  } else if (confirmNumber && confirmUppercase) {
+    choicesSelected = number.push(alpha2);
+  }
+  // and last section if user chooses 1 out of the 4
+  else if (confirmNumber) {
+    choicesSelected = number;
+  } else if (confirmLowercase) {
+    choicesSelected = alpha;
+  } else if (confirmCharacter) {
+    choicesSelected = character;
+  }
+  var password = [];
 
-return generatePassword.join("");
+  for (var i = 0; i < userEnter; i++) {
+    var generateChoices =
+      choicesSelected[Math.floor(Math.random() * choicesSelected.length)];
+    password.push(generateChoices);
+  }
+
+  //.join method will be used here because we need to generate the password string
+  // also will need to call on the function using a return function but not sure what I am calling on 
+  
