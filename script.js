@@ -95,14 +95,20 @@ function generatePassword() {
     )
   );
   if (!userEnter) {
-    alert("This needs a value");
+    alert("Please enter a value between 8 and 128");
   } else if (userEnter < 8 || userEnter > 128) {
-    userEnter = parseInt(prompt("You must choose between 8 and 128"));
+    userEnter = parseInt(prompt("Please enter a value between 8 and 12"));
   } else {
-    confirmNumber = confirm("Will this contain numbers?");
-    confirmCharacter = confirm("Will this contain special characters?");
-    confirmUppercase = confirm("Will this contain Uppercase letters?");
-    confirmLowercase = confirm("Will this contain Lowercase letters?");
+    confirmCharacter = confirm(
+      "Click OK to confirm including special characters"
+    );
+    confirmNumber = confirm("Click OK to confirm including numeric characters");
+    confirmUppercase = confirm(
+      "Click OK to confirm including Uppercase letters"
+    );
+    confirmLowercase = confirm(
+      "Click OK to confirm including Lowercase letters"
+    );
   }
 }
 //first if statement is for if user chooses all 4 options - .push is what combines the values together
@@ -139,6 +145,7 @@ else if (confirmNumber) {
 } else if (confirmCharacter) {
   choicesSelected = character;
 }
+var password = [];
 
 for (var i = 0; i < enter; i++) {
   var generateChoices =
