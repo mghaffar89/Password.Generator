@@ -1,12 +1,10 @@
-//user input variables:
-var enter;
+var userEnter;
 var confirmNumber;
 var confirmCharacter;
 var confirmUppercase;
 var confirmLowercase;
 var choicesSelected;
 
-//password variable values:
 number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 character = [
   "!",
@@ -91,15 +89,15 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
-  enter = parseInt(
+  userEnter = parseInt(
     prompt(
       "How many characters would you like your password? Choose between 8 and 128"
     )
   );
-  if (!enter) {
+  if (!userEnter) {
     alert("This needs a value");
-  } else if (enter < 8 || enter > 128) {
-    enter = parseInt(prompt("You must choose between 8 and 128"));
+  } else if (userEnter < 8 || userEnter > 128) {
+    userEnter = parseInt(prompt("You must choose between 8 and 128"));
   } else {
     confirmNumber = confirm("Will this contain numbers?");
     confirmCharacter = confirm("Will this contain special characters?");
@@ -107,7 +105,7 @@ function generatePassword() {
     confirmLowercase = confirm("Will this contain Lowercase letters?");
   }
 }
-//first if statement is for if user chooses all 4 options
+//first if statement is for if user chooses all 4 options - .push is what combines the values together
 if (confirmCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
   choicesSelected = character.push(number, alpha, alpha2);
   //next section is if user chooses 3 out of 4 options
@@ -140,4 +138,10 @@ else if (confirmNumber) {
   choicesSelected = alpha;
 } else if (confirmCharacter) {
   choicesSelected = character;
+}
+
+for (var i = 0; i < enter; i++) {
+  var generateChoices =
+    choicesSelected[Math.floor(Math.random() * choicesSelected.length)];
+  password.push(generateChoices);
 }
