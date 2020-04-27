@@ -107,8 +107,37 @@ function generatePassword() {
     confirmLowercase = confirm("Will this contain Lowercase letters?");
   }
 }
-
+//first if statement is for if user chooses all 4 options
 if (confirmCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
   choicesSelected = character.push(number, alpha, alpha2);
+  //next section is if user chooses 3 out of 4 options
+} else if (confirmCharacter && confirmNumber && confirmUppercase) {
+  choicesSelected = character.push(number, alpha2);
+} else if (confirmCharacter && confirmNumber && confirmLowercase) {
+  choicesSelected = character.push(number, alpha);
+} else if (confirmCharacter && confirmLowercase && confirmUppercase) {
+  choicesSelected = character.push(alpha, alpha2);
+} else if (confirmNumber && confirmLowercase && confirmUppercase) {
+  choicesSelected = number.push(alpha, alpha2);
+  //next section is if user chooses 2 out of 4 options
+} else if (confirmCharacter && confirmNumber) {
+  choicesSelected = character.push(number);
+} else if (confirmCharacter && confirmLowercase) {
+  choicesSelected = character.push(alpha);
+} else if (confirmCharacter && confirmUppercase) {
+  choicesSelected = character.push(alpha2);
+} else if (confirmLowercase && confirmNumber) {
+  choicesSelected = alpha.push(number);
+} else if (confirmLowercase && confirmUppercase) {
+  choicesSelected = alpha.push(alpha2);
+} else if (confirmNumber && confirmUppercase) {
+  choicesSelected = number.push(alpha2);
 }
-console.log(choicesSelected);
+// and last section if user chooses 1 out of the 4
+else if (confirmNumber) {
+  choicesSelected = number;
+} else if (confirmLowercase) {
+  choicesSelected = alpha;
+} else if (confirmCharacter) {
+  choicesSelected = character;
+}
