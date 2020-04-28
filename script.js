@@ -159,5 +159,12 @@ function generatePassword() {
   }
 
   //.join method will be used here because we need to generate the password string
-  // also will need to call on the function using a return function but not sure what I am calling on 
-  
+  // also will need to call on the function using a return function but not sure what I am calling on
+
+  var password = passwordText.join("");
+  UserInput(password);
+  return password;
+}
+function UserInput(password) {
+  passwordText.textContent = password;
+}
